@@ -1,17 +1,35 @@
 aid: evolve-vacation-rental-network
 name: Evolve
-description: 'Evolve is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Evolve (formerly Evolve Vacation Rental) is a Denver, Colorado hospitality company
+  founded in 2011 that manages more than 30,000 short-term rental properties across the
+  United States, Canada, Mexico and the Caribbean. It runs a hybrid vacation-rental
+  management model: Evolve handles listing creation, photography, dynamic pricing,
+  marketing, distribution to Airbnb, Vrbo, Booking.com, Expedia, Google, Hopper and
+  Homes & Villas by Marriott Bonvoy, guest communication and 24/7 support, while the
+  owner keeps the freedom to choose their own on-the-ground cleaning and service
+  providers. Owners pick a Core, Plus or Pro management plan; guests book directly at
+  evolve.com. Evolve publishes no public developer program, API reference or
+  machine-readable contract — it consumes channel-manager APIs rather than publishing
+  one. Its distribution integration platform is built on AWS (API Gateway, S3, Aurora)
+  with Rentals United as the channel manager.
+image: https://evolve.com/apple-touch-icon.png
 url: https://raw.githubusercontent.com/api-evangelist/evolve-vacation-rental-network/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-source-url: https://forgeglobal.com/evolve-vacation-rental-network_stock/
 specificationVersion: '0.20'
 created: '2026-08-12'
 modified: '2026-08-12'
 tags:
 - Company
+- Travel
+- Hospitality
+- Vacation Rentals
+- Short-Term Rentals
+- Property Management
+- Real Estate
+- Booking
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +37,64 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/evolve-vacation-rental-network-domain-security.yml
 - type: Website
-  url: https://forgeglobal.com/evolve-vacation-rental-network_stock/
+  url: https://evolve.com
+- type: Blog
+  url: https://evolve.com/blog
+- type: HelpCenter
+  url: https://help.evolve.com/s/
+- type: Support
+  url: https://evolve.com/contact
+- type: Pricing
+  url: https://evolve.com/owner/vacation-rental-management
+- type: Login
+  url: https://owner.evolve.com/login/idp
+- type: TermsOfService
+  url: https://evolve.com/terms
+- type: PrivacyPolicy
+  url: https://evolve.com/privacy
+- type: LLMsTxt
+  url: llms/evolve-vacation-rental-network-llms.txt
+- type: WellKnown
+  url: well-known/evolve-vacation-rental-network-well-known.yml
+- type: Authentication
+  url: authentication/evolve-vacation-rental-network-authentication.yml
+- type: OAuthScopes
+  url: scopes/evolve-vacation-rental-network-scopes.yml
+- type: Conformance
+  url: conformance/evolve-vacation-rental-network-conformance.yml
+- type: Plans
+  url: plans/evolve-vacation-rental-network-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/evolve-vacation-rental-network-rate-limits.yml
+- type: Packages
+  url: packages/evolve-vacation-rental-network-packages.yml
+- type: Lifecycle
+  url: lifecycle/evolve-vacation-rental-network-lifecycle.yml
+x-enrichment:
+  date: '2026-08-12'
+  status: minimal
+  artifacts_added: 12
+  pass: local-v1
+x-coverage:
+  state: gated
+  reason: partner-login
+  detail: >-
+    Evolve ships no developer portal at all, and the two API surfaces that do exist are
+    reachable only with an owner credential — a POST introspection query to
+    owner.evolve.com/graphql 307s to /login/idp, and api.evolve.com (an AWS API Gateway)
+    answers ForbiddenException on every path including /openapi.json and every
+    /.well-known/ path — so the only anonymous machine-readable document on any Evolve
+    host is the Salesforce Experience Cloud OIDC discovery doc at help.evolve.com.
+  evidence:
+  - url: https://owner.evolve.com/graphql
+    status: 307
+  - url: https://api.evolve.com/openapi.json
+    status: 403
+  - url: https://help.evolve.com/.well-known/openid-configuration
+    status: 200
+  - url: https://evolve.com/llms.txt
+    status: 200
+  checked: '2026-08-12'

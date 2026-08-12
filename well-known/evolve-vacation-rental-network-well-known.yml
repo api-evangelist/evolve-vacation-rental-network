@@ -1,0 +1,140 @@
+generated: '2026-08-12'
+method: probed
+source: https://help.evolve.com/.well-known/openid-configuration
+name: Evolve — .well-known probe
+description: >-
+  Anonymous probe of every /.well-known/ path across every Evolve host found during
+  contract discovery. One real document was returned: the OpenID Connect discovery
+  document served by the Salesforce Experience Cloud tenant that runs Evolve's help
+  center at help.evolve.com. Every path on the marketing site (evolve.com), the owner
+  portal (owner.evolve.com) and the API gateway host (api.evolve.com) missed — 404 on
+  the Next.js sites, 403 ForbiddenException from the AWS API Gateway in front of
+  api.evolve.com.
+hosts:
+- evolve.com
+- api.evolve.com
+- owner.evolve.com
+- help.evolve.com
+probes:
+- host: help.evolve.com
+  path: /.well-known/openid-configuration
+  url: https://help.evolve.com/.well-known/openid-configuration
+  status: 200
+  content_type: application/json;charset=UTF-8
+  document: true
+  file: evolve-vacation-rental-network-openid-configuration.json
+  note: >-
+    Real OIDC discovery document. issuer is https://help.evolve.com and every endpoint
+    is on that host, so it belongs to Evolve's own tenant — but the endpoint layout
+    (/services/oauth2/*, /id/keys) and the 36-entry scopes_supported list are the
+    Salesforce Experience Cloud standard set, not a scope vocabulary Evolve authored.
+- host: help.evolve.com
+  path: /.well-known/security.txt
+  url: https://help.evolve.com/.well-known/security.txt
+  status: 401
+  content_type: text/html;charset=UTF-8
+  document: false
+- host: help.evolve.com
+  path: /.well-known/oauth-authorization-server
+  status: 401
+  document: false
+- host: help.evolve.com
+  path: /.well-known/oauth-protected-resource
+  status: 401
+  document: false
+- host: help.evolve.com
+  path: /.well-known/api-catalog
+  status: 401
+  document: false
+- host: help.evolve.com
+  path: /.well-known/ai-plugin.json
+  status: 401
+  document: false
+- host: help.evolve.com
+  path: /.well-known/agent-card.json
+  status: 401
+  document: false
+- host: help.evolve.com
+  path: /.well-known/agent.json
+  status: 401
+  document: false
+- host: evolve.com
+  path: /.well-known/security.txt
+  status: 404
+  document: false
+- host: evolve.com
+  path: /.well-known/openid-configuration
+  status: 404
+  document: false
+- host: evolve.com
+  path: /.well-known/oauth-authorization-server
+  status: 404
+  document: false
+- host: evolve.com
+  path: /.well-known/oauth-protected-resource
+  status: 404
+  document: false
+- host: evolve.com
+  path: /.well-known/api-catalog
+  status: 404
+  document: false
+- host: evolve.com
+  path: /.well-known/ai-plugin.json
+  status: 404
+  document: false
+- host: evolve.com
+  path: /.well-known/agent-card.json
+  status: 404
+  document: false
+- host: evolve.com
+  path: /.well-known/agent.json
+  status: 404
+  document: false
+- host: owner.evolve.com
+  path: /.well-known/openid-configuration
+  status: 404
+  document: false
+- host: owner.evolve.com
+  path: /.well-known/security.txt
+  status: 404
+  document: false
+- host: owner.evolve.com
+  path: /.well-known/agent-card.json
+  status: 404
+  document: false
+- host: owner.evolve.com
+  path: /.well-known/agent.json
+  status: 404
+  document: false
+- host: api.evolve.com
+  path: /.well-known/openid-configuration
+  status: 403
+  content_type: application/json
+  document: false
+  note: >-
+    api.evolve.com is an AWS API Gateway (x-amz-apigw-id / x-amzn-errortype:
+    ForbiddenException). Every path returns {"message":"Forbidden"} — the host is real
+    and Evolve-controlled but the whole surface is credentialed.
+- host: api.evolve.com
+  path: /.well-known/security.txt
+  status: 403
+  document: false
+- host: api.evolve.com
+  path: /.well-known/agent-card.json
+  status: 403
+  document: false
+- host: api.evolve.com
+  path: /.well-known/agent.json
+  status: 403
+  document: false
+summary:
+  paths_probed: 32
+  hits: 1
+  documents: 1
+  security_txt: false
+  openid_configuration: true
+  oauth_authorization_server: false
+  api_catalog: false
+  ai_plugin: false
+  agent_card: false
+checked: '2026-08-12'

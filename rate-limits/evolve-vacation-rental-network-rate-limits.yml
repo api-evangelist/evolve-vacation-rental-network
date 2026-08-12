@@ -1,0 +1,44 @@
+generated: '2026-08-12'
+method: probed
+source: https://evolve.com/
+name: Evolve — rate limits
+description: >-
+  Evolve documents no rate limits, because Evolve publishes no API. This file records
+  the honest zero plus what an anonymous probe could observe on the two credentialed
+  hosts, so a reader can see the measurement rather than an omission.
+limit_count: 0
+documented: false
+docs: null
+docs_note: >-
+  No developer portal, API reference or usage-policy page exists on evolve.com,
+  owner.evolve.com or help.evolve.com. Searched; nothing to cite.
+limits: []
+observed_headers:
+- host: api.evolve.com
+  url: https://api.evolve.com/
+  status: 403
+  ratelimit_headers: []
+  retry_after: false
+  note: >-
+    AWS API Gateway returns ForbiddenException with no RateLimit-*, X-RateLimit-* or
+    Retry-After header on the anonymous path. Any throttling that exists is applied
+    behind the credential and is not signalled to unauthenticated callers.
+- host: help.evolve.com
+  url: https://help.evolve.com/.well-known/openid-configuration
+  status: 200
+  ratelimit_headers: []
+  retry_after: false
+  note: >-
+    The Salesforce Experience Cloud discovery endpoint returns no rate-limit headers.
+    Salesforce enforces org-level API request allocations, but those are tenant terms
+    between Evolve and Salesforce, not published limits for third parties.
+exhaustion_status_code: null
+crawler_policy:
+  url: https://evolve.com/robots.txt
+  status: 200
+  note: >-
+    The only published consumption policy Evolve has is robots.txt. It explicitly
+    allows GPTBot, ChatGPT-User, Google-Extended and anthropic-ai on the catalog while
+    disallowing /booking/, /guest/, /vacation-rentals/search?, /promotions/, /bc/ and
+    /login*. No crawl-delay is set.
+checked: '2026-08-12'

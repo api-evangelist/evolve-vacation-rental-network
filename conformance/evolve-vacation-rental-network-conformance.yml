@@ -1,0 +1,113 @@
+generated: '2026-08-12'
+method: probed
+source: https://help.evolve.com/.well-known/openid-configuration
+name: Evolve — standards conformance
+description: >-
+  Cross-cutting standards assertions for Evolve. There is no OpenAPI, AsyncAPI, GraphQL
+  SDL or published API reference to derive from, so every entry below is either grounded
+  in a document actually fetched during this pass or recorded as not-conformant with the
+  reason. Nothing is asserted from the company's marketing copy.
+standards:
+- id: oidc
+  name: OpenID Connect Discovery 1.0
+  conforms: true
+  evidence: >-
+    https://help.evolve.com/.well-known/openid-configuration returns HTTP 200
+    application/json with issuer, authorization_endpoint, token_endpoint, jwks_uri,
+    userinfo_endpoint, response_types_supported, subject_types_supported and
+    id_token_signing_alg_values_supported (RS256) — every field RFC-required of a
+    discovery document. issuer matches the host it was fetched from.
+  scope: help.evolve.com (Evolve's Salesforce Experience Cloud tenant)
+  caveat: >-
+    The provider is supplied by Salesforce and runs on an Evolve-owned hostname. Evolve
+    did not author it and does not document it; conformance belongs to the platform.
+- id: oauth2
+  name: OAuth 2.0
+  conforms: true
+  evidence: >-
+    Authorization, token, revocation (RFC 7009) and introspection (RFC 7662) endpoints
+    are advertised, with token_endpoint_auth_methods_supported of client_secret_post,
+    client_secret_basic and private_key_jwt (RFC 7523).
+  scope: help.evolve.com
+- id: rfc8414
+  name: OAuth 2.0 Authorization Server Metadata
+  conforms: false
+  evidence: >-
+    /.well-known/oauth-authorization-server returns 401 on help.evolve.com and 404 on
+    evolve.com and owner.evolve.com. Only the OIDC discovery path is served.
+- id: rfc7636
+  name: PKCE
+  conforms: false
+  evidence: >-
+    code_challenge_methods_supported is absent from the discovery document. Not
+    advertised. This is an absence of declaration, not proof of absence of support.
+- id: rfc9116
+  name: security.txt
+  conforms: false
+  evidence: >-
+    /.well-known/security.txt returns 404 on evolve.com and owner.evolve.com, 401 on
+    help.evolve.com, 403 on api.evolve.com. No security.txt is served anywhere.
+- id: openapi
+  name: OpenAPI
+  conforms: false
+  evidence: >-
+    No OpenAPI or Swagger document found. Probed /openapi.json, /openapi.yaml,
+    /swagger.json, /v1/openapi.json, /api-docs, /docs and /redoc against evolve.com,
+    api.evolve.com, owner.evolve.com, developer.evolve.com, docs.evolve.com and
+    partners.evolve.com. api.evolve.com answers 403 ForbiddenException on every path;
+    developer./docs./partners. do not resolve.
+- id: graphql
+  name: GraphQL introspection
+  conforms: false
+  evidence: >-
+    https://owner.evolve.com/graphql exists but a POST introspection query returns 307
+    to /login/idp?redirect_url=%2Fgraphql. The schema is session-gated; no SDL is
+    obtainable anonymously.
+- id: asyncapi
+  name: AsyncAPI
+  conforms: false
+  evidence: No event, streaming or webhook surface is documented or discoverable.
+- id: rfc9457
+  name: Problem Details for HTTP APIs
+  conforms: false
+  evidence: >-
+    api.evolve.com returns {"message":"Forbidden"} with content-type application/json —
+    the AWS API Gateway default envelope, not application/problem+json.
+- id: mcp
+  name: Model Context Protocol
+  conforms: false
+  evidence: >-
+    No MCP endpoint found on any Evolve host. The mcp_api scope in the help.evolve.com
+    discovery document is a Salesforce platform scope, not an Evolve MCP server.
+- id: a2a
+  name: A2A Agent Card
+  conforms: false
+  evidence: >-
+    /.well-known/agent-card.json and /.well-known/agent.json return 404 on evolve.com
+    and owner.evolve.com, 401 on help.evolve.com, 403 on api.evolve.com. No card.
+- id: llmstxt
+  name: llms.txt
+  conforms: true
+  evidence: >-
+    https://evolve.com/llms.txt returns HTTP 200 text/plain, 7,382 bytes, in llms.txt
+    structure (H1, blockquote summary, H2 sections, link lists), self-dated 2026-06-17.
+    Mirrored at www.evolve.com/llms.txt.
+- id: schema-org
+  name: Schema.org structured data
+  conforms: true
+  evidence: >-
+    evolve.com/llms.txt declares the site emits LodgingBusiness, Product/Offer,
+    FAQPage, Review, AggregateRating, BreadcrumbList, Organization, LocalBusiness and
+    SearchAction. Self-declared by the provider in a document we fetched; the markup
+    itself was not independently validated on every page type.
+compliance_program:
+  published: false
+  note: >-
+    No trust center, certification page or compliance program found. trust.evolve.com
+    and security.evolve.com do not resolve; evolve.com/trust, /security and /compliance
+    return 404. No `type: Compliance` pointer is emitted.
+summary:
+  asserted: 13
+  conformant: 4
+  not_conformant: 9
+checked: '2026-08-12'

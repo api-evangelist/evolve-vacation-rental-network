@@ -1,0 +1,94 @@
+generated: '2026-08-12'
+method: probed
+source: https://help.evolve.com/.well-known/openid-configuration
+name: Evolve — authentication profile
+description: >-
+  Evolve publishes no developer program, no API reference and no OpenAPI, so there is
+  no securityScheme block to derive an auth profile from. What this file records is
+  what an anonymous probe could actually observe: one live OpenID Connect provider on
+  an Evolve-controlled host, and two credentialed API surfaces whose auth mechanism is
+  visible only from the outside.
+derived_from_openapi: false
+openapi_present: false
+providers:
+- id: help-evolve-oidc
+  name: Evolve Help Center identity provider
+  type: openIdConnect
+  host: help.evolve.com
+  issuer: https://help.evolve.com
+  discovery: https://help.evolve.com/.well-known/openid-configuration
+  status: 200
+  ownership_note: >-
+    issuer and every advertised endpoint resolve to help.evolve.com, an Evolve-owned
+    hostname, so the tenant is Evolve's. The endpoint layout (/services/oauth2/*,
+    /id/keys, /services/data) is Salesforce Experience Cloud's standard shape — this
+    is Evolve's Salesforce community, not an API product Evolve designed.
+  endpoints:
+    authorization: https://help.evolve.com/services/oauth2/authorize
+    token: https://help.evolve.com/services/oauth2/token
+    revocation: https://help.evolve.com/services/oauth2/revoke
+    introspection: https://help.evolve.com/services/oauth2/introspect
+    userinfo: https://help.evolve.com/services/oauth2/userinfo
+    registration: https://help.evolve.com/services/oauth2/register
+    end_session: https://help.evolve.com/services/auth/idp/oidc/logout
+    jwks: https://help.evolve.com/id/keys
+  jwks_status: 200
+  response_types_supported:
+  - code
+  - token
+  - token id_token
+  token_endpoint_auth_methods_supported:
+  - client_secret_post
+  - client_secret_basic
+  - private_key_jwt
+  id_token_signing_alg_values_supported:
+  - RS256
+  subject_types_supported:
+  - public
+  scopes_supported_count: 36
+  scopes: scopes/evolve-vacation-rental-network-scopes.yml
+  claims_supported_count: 24
+  dynamic_client_registration: true
+  dynamic_client_registration_note: >-
+    A /services/oauth2/register endpoint is advertised. Advertised is not the same as
+    open — it was not exercised, and Salesforce gates it on a connected-app policy.
+  pkce_advertised: false
+  pkce_note: >-
+    code_challenge_methods_supported is absent from the discovery document. Salesforce
+    supports PKCE regardless; the omission is a discovery-document gap, not proof PKCE
+    is unavailable.
+observed_gated_surfaces:
+- id: api-evolve-com
+  host: api.evolve.com
+  url: https://api.evolve.com/
+  status: 403
+  mechanism: unknown
+  evidence: >-
+    AWS API Gateway (x-amz-apigw-id, x-amzn-errortype ForbiddenException) behind
+    Cloudflare. Every probed path returns {"message":"Forbidden"} with no
+    WWW-Authenticate header, so the credential type is not disclosed to anonymous
+    callers. No authorizer challenge, no OAuth metadata.
+- id: owner-evolve-graphql
+  host: owner.evolve.com
+  url: https://owner.evolve.com/graphql
+  status: 307
+  mechanism: session-cookie
+  evidence: >-
+    POST of a GraphQL introspection query returns 307 to
+    /login/idp?redirect_url=%2Fgraphql — the owner portal's identity provider. The
+    endpoint is real and session-gated; the schema is not introspectable anonymously.
+summary:
+  schemes_documented_by_provider: 0
+  schemes_observed: 1
+  oauth2: true
+  openid_connect: true
+  api_key: null
+  mutual_tls: null
+  note: >-
+    api_key and mutual_tls are null, not false — Evolve documents nothing, so their
+    absence is unmeasured rather than measured.
+docs: null
+docs_note: >-
+  Searched evolve.com, owner.evolve.com, help.evolve.com and the licensed-partners
+  page for an authentication or developer page. None exists.
+checked: '2026-08-12'

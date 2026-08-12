@@ -1,0 +1,53 @@
+generated: '2026-08-12'
+method: probed
+source: https://evolve.com/
+name: Evolve — API lifecycle
+description: >-
+  Evolve publishes no versioning policy, no deprecation policy, no SLA, no changelog and
+  no status page for any API, because it publishes no API. This file exists to record
+  those absences with evidence — in particular to rule out a status page that a name
+  match would otherwise have wired to this company by mistake.
+versioning:
+  documented: false
+  scheme: null
+  note: No API version scheme is published. There is no API reference to carry one.
+deprecation:
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  rfc8594: false
+  note: >-
+    No deprecation or sunset policy page exists on evolve.com, owner.evolve.com or
+    help.evolve.com. No Sunset or Deprecation response header was observed on any
+    probed endpoint. No `type: Deprecation` pointer is emitted.
+sla:
+  published: false
+  note: No API service-level agreement is published.
+status_page:
+  published: false
+  url: null
+  note: >-
+    NAME-MATCH FALSE POSITIVE, RULED OUT. https://evolve.statuspage.io returns HTTP 200
+    with the title "Evolve Status", but its summary.json reports page.time_zone
+    "Pacific/Auckland" and components named "Frontend application" created in March 2022
+    — a different company that happens to share the name. status.evolve.com does not
+    resolve (DNS failure). No `type: StatusPage` pointer is emitted, and a later round
+    should not wire evolve.statuspage.io to this profile.
+changelog:
+  published: false
+  url: null
+  note: >-
+    No API changelog. evolve.com/blog is a marketing and travel-content blog, not a
+    release log.
+x-evidence:
+- url: https://evolve.statuspage.io/api/v2/summary.json
+  status: 200
+  finding: different company (Pacific/Auckland tenant)
+- url: https://status.evolve.com
+  status: 0
+  finding: DNS does not resolve
+- url: https://evolve.com/security
+  status: 404
+- url: https://evolve.com/trust
+  status: 404
+checked: '2026-08-12'

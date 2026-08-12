@@ -1,0 +1,52 @@
+generated: '2026-08-12'
+method: searched
+source: https://evolve.com/llms.txt
+name: Evolve — llms.txt
+description: >-
+  Evolve publishes a real llms.txt at the root of its marketing site. It is a
+  business/content orientation file for AI crawlers — company facts, the owner/guest/
+  partner product split, destination markets, canonical URLs, social profiles, and a
+  declaration of the Schema.org types the site emits. It documents no API, no endpoint
+  and no tool surface, which is consistent with the rest of this profile.
+file: evolve-vacation-rental-network-llms.txt
+x-evidence:
+  fetched: '2026-08-12'
+  url: https://evolve.com/llms.txt
+  http_status: 200
+  content_type: text/plain
+  bytes: 7382
+  self_reported_last_updated: '2026-06-17'
+mirrors:
+- url: https://www.evolve.com/llms.txt
+  status: 200
+llms_full_txt:
+  url: https://evolve.com/llms-full.txt
+  status: 404
+  present: false
+sections:
+- About Evolve
+- What We Offer (owners & operators, guests, partners)
+- Popular Destinations
+- Key Facts
+- URLs
+- Social Media
+- Content Categories
+- Structured Data
+- Contact Information
+- Last Updated
+api_content:
+  documents_endpoints: false
+  documents_authentication: false
+  documents_tools: false
+  note: >-
+    No API, base URL, endpoint, key, or tool is named anywhere in the file. It is an
+    SEO/AI-discovery document, not a developer artifact.
+related_agent_policy:
+  robots_txt: https://evolve.com/robots.txt
+  robots_status: 200
+  note: >-
+    robots.txt explicitly allows named AI crawlers (GPTBot, ChatGPT-User,
+    Google-Extended, anthropic-ai) under a header comment reading "AI Crawlers -
+    Explicitly Allowed", while disallowing the transactional paths (/booking/,
+    /guest/, /vacation-rentals/search?, /login*). Stated policy and llms.txt agree:
+    read the catalog, do not walk the funnel.

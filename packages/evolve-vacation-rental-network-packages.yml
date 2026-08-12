@@ -1,0 +1,82 @@
+generated: '2026-08-12'
+method: searched
+source: >-
+  npm, PyPI, RubyGems, Packagist, crates.io registry metadata endpoints plus the GitHub
+  search API and evolve.com
+name: Evolve — client packages
+description: >-
+  Evolve publishes no first-party client libraries, SDKs or CLI binaries in any package
+  registry, and operates no public GitHub organization. This is a recorded zero, not an
+  unchecked field — the searches and the near-miss namespaces that were ruled out are
+  listed below so a later round does not have to re-litigate them.
+package_count: 0
+official_package_count: 0
+packages: []
+registries_searched:
+- registry: npm
+  status: no first-party package
+- registry: pypi
+  status: no first-party package
+- registry: rubygems
+  status: no first-party package
+- registry: packagist
+  status: no first-party package
+- registry: crates.io
+  status: no first-party package
+- registry: maven-central
+  status: no first-party package
+- registry: nuget
+  status: no first-party package
+- registry: pkg.go.dev
+  status: no first-party package
+ruled_out:
+- name: evolve
+  registry: npm
+  version: null
+  published: null
+  official: false
+  reason: >-
+    "library for evolving source code" by daizoru, repo github.com/daizoru/node-evolve.
+    Name collision only.
+- name: evolve
+  registry: pypi
+  version: null
+  published: null
+  official: false
+  reason: >-
+    "Web interface for the Volatility Memory Forensics Framework" by James Habben.
+    Name collision only.
+- name: evolve
+  registry: rubygems
+  version: null
+  published: null
+  official: false
+  reason: >-
+    Genetic-algorithm optimization gem by Daniel Marin Cabillas. Name collision only.
+- name: github.com/Evolve
+  registry: github
+  version: null
+  published: null
+  official: false
+  reason: >-
+    The GitHub org `Evolve` is "EvolveMC Server Software" (evolvemc.net, one public
+    repo) — a Minecraft server project, not this company. github.com/api search for an
+    org whose blog is evolve.com returns 0 results.
+github_organization: null
+github_note: >-
+  No Evolve Vacation Rental GitHub organization exists. The only repository the GitHub
+  search API surfaces for the company name is Bryanh7496/Evolve_Code_Challenge, a
+  candidate's SQL take-home for an Evolve data-analyst role — third-party, not
+  first-party.
+mobile_apps:
+- name: Evolve Owner (iOS)
+  url: https://apps.apple.com/us/app/evolve-owner/id6449849228
+  official: true
+  note: >-
+    First-party owner app. Distributed through the App Store, not a package registry —
+    no version metadata endpoint to query, and an app is not a client library.
+- name: Evolve Owner (Android)
+  url: https://play.google.com/store/apps/details?id=mobile.evolve
+  official: true
+  note: First-party owner app. Same caveat as iOS.
+checked: '2026-08-12'

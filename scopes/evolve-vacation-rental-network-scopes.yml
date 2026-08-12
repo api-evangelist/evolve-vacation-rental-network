@@ -1,0 +1,140 @@
+generated: '2026-08-12'
+method: probed
+source: https://help.evolve.com/.well-known/openid-configuration
+name: Evolve — OAuth scopes
+description: >-
+  The scopes_supported list advertised by the OpenID Connect provider on
+  help.evolve.com. Read verbatim from the live discovery document — nothing is derived
+  from an OpenAPI, because Evolve publishes none.
+important_note: >-
+  READ THIS BEFORE USING THIS FILE. These are the Salesforce Experience Cloud standard
+  platform scopes, advertised by Evolve's own tenant at issuer https://help.evolve.com.
+  They are NOT a scope vocabulary Evolve authored for a product API, and the presence
+  of a scope here says only that the platform can mint it — not that Evolve exposes the
+  matching surface to third parties. Do not read cdp_*/einstein_gpt_api/mcp_api as
+  evidence that Evolve ships a Data Cloud, Einstein or MCP integration.
+issuer: https://help.evolve.com
+authorization_endpoint: https://help.evolve.com/services/oauth2/authorize
+token_endpoint: https://help.evolve.com/services/oauth2/token
+scope_count: 36
+docs: null
+docs_note: >-
+  Evolve publishes no scopes or permissions reference page. Searched evolve.com,
+  help.evolve.com and owner.evolve.com; nothing found.
+scopes:
+- name: openid
+  family: oidc
+  description: Return an OpenID Connect ID token.
+- name: profile
+  family: oidc
+  description: Standard OIDC profile claims.
+- name: email
+  family: oidc
+  description: Email address and email_verified claim.
+- name: address
+  family: oidc
+  description: Address claim.
+- name: phone
+  family: oidc
+  description: Phone number and phone_number_verified claim.
+- name: id
+  family: oidc
+  description: Salesforce identity URL access.
+- name: offline_access
+  family: oidc
+  description: Long-lived access without the user present.
+- name: refresh_token
+  family: oidc
+  description: Issue a refresh token.
+- name: api
+  family: platform
+  description: Salesforce REST/SOAP data API access.
+- name: full
+  family: platform
+  description: All permissions the user holds. Broad — the platform's widest grant.
+- name: web
+  family: platform
+  description: Web/session access via the access token.
+- name: lightning
+  family: platform
+  description: Lightning application access.
+- name: visualforce
+  family: platform
+  description: Visualforce page access.
+- name: content
+  family: platform
+  description: Salesforce Files/Content access.
+- name: custom_permissions
+  family: platform
+  description: Return the connected app's custom permissions for the user.
+- name: chatter_api
+  family: platform
+  description: Connect (Chatter) REST API access.
+- name: wave_api
+  family: analytics
+  description: CRM Analytics (Wave) REST API access.
+- name: eclair_api
+  family: analytics
+  description: CRM Analytics chart/Eclair API access.
+- name: pardot_api
+  family: marketing
+  description: Account Engagement (Pardot) API access.
+- name: interaction_api
+  family: marketing
+  description: Marketing Cloud interaction/journey API access.
+- name: chatbot_api
+  family: service
+  description: Einstein Bots API access.
+- name: scrt_api
+  family: service
+  description: Service Cloud real-time (Messaging for In-App and Web) API access.
+- name: sfap_api
+  family: ai
+  description: Salesforce AI platform (Models/Agent) API access.
+- name: einstein_gpt_api
+  family: ai
+  description: Einstein GPT / generative AI API access.
+- name: mcp_api
+  family: ai
+  description: >-
+    Salesforce Model Context Protocol API access. Platform-advertised only — no MCP
+    endpoint was reachable on any Evolve host during this pass.
+- name: cdp_api
+  family: data-cloud
+  description: Data Cloud API access.
+- name: cdp_query_api
+  family: data-cloud
+  description: Data Cloud query API.
+- name: cdp_ingest_api
+  family: data-cloud
+  description: Data Cloud ingestion API.
+- name: cdp_profile_api
+  family: data-cloud
+  description: Data Cloud profile API.
+- name: cdp_segment_api
+  family: data-cloud
+  description: Data Cloud segmentation API.
+- name: cdp_calculated_insight_api
+  family: data-cloud
+  description: Data Cloud calculated insights API.
+- name: cdp_identityresolution_api
+  family: data-cloud
+  description: Data Cloud identity resolution API.
+- name: data_cloud_user_claims
+  family: data-cloud
+  description: Data Cloud user claims in the token.
+- name: user_registration_api
+  family: identity
+  description: Self-registration API for external identity users.
+- name: pwdless_login_api
+  family: identity
+  description: Passwordless login API.
+- name: forgot_password
+  family: identity
+  description: Forgot-password flow API.
+x-evidence:
+  fetched: '2026-08-12'
+  url: https://help.evolve.com/.well-known/openid-configuration
+  http_status: 200
+  content_type: application/json;charset=UTF-8
+checked: '2026-08-12'
