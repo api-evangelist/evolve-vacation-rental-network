@@ -18,7 +18,7 @@ url: https://raw.githubusercontent.com/api-evangelist/evolve-vacation-rental-net
 x-type: company
 x-source: harvest:secondary-market
 x-source-url: https://forgeglobal.com/evolve-vacation-rental-network_stock/
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-08-12'
 modified: '2026-08-12'
 tags:
