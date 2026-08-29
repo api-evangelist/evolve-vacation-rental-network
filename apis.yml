@@ -13,6 +13,17 @@ description: >-
   machine-readable contract — it consumes channel-manager APIs rather than publishing
   one. Its distribution integration platform is built on AWS (API Gateway, S3, Aurora)
   with Rentals United as the channel manager.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://evolve.com/apple-touch-icon.png
 url: https://raw.githubusercontent.com/api-evangelist/evolve-vacation-rental-network/refs/heads/main/apis.yml
 x-type: company
