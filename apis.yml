@@ -54,7 +54,7 @@ tags:
 - Vacation Rentals
 - Short-Term Rental
 - Property Management
-- Real-Estate
+- Real Estate
 - Booking
 tags_raw:
 - Company
@@ -65,6 +65,7 @@ tags_raw:
 - Property Management
 - Real Estate
 - Booking
+- Real-Estate
 apis: []
 maintainers:
 - FN: Kin Lane
