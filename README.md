@@ -64,5 +64,103 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Evolve is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://forgeglobal.com/evolve-vacation-rental-network_stock/
+Evolve (formerly Evolve Vacation Rental) is a Denver, Colorado hospitality company founded in 2011 that manages more than 30,000 short-term rental properties across the United States, Canada, Mexico and the Caribbean. It runs a hybrid vacation-rental management model: Evolve handles listing creation, photography, dynamic pricing, marketing, distribution to Airbnb, Vrbo, Booking.com, Expedia, Google, Hopper and Homes & Villas by Marriott Bonvoy, guest communication and 24/7 support, while the owner keeps the freedom to choose their own on-the-ground cleaning and service providers. Owners pick a Core, Plus or Pro management plan; guests book directly at evolve.com. Evolve publishes no public developer program, API reference or machine-readable contract — it consumes channel-manager APIs rather than publishing one. Its distribution integration platform is built on AWS (API Gateway, S3, Aurora) with Rentals United as the channel manager.
+
+**Areas:** Company · Travel · Hospitality · Vacation Rentals · Short-Term Rental · Property Management · Real Estate · Booking
+
+## Evolve on APIs.io
+
+Everything profiled for Evolve is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/evolve-vacation-rental-network/](https://apis.io/providers/evolve-vacation-rental-network/)** — or go straight to one of the APIs or properties below.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Evolve Vacation Rental Network Authentication](https://apis.io/security/evolve-vacation-rental-network/evolve-vacation-rental-network-authentication/)
+- [Evolve Vacation Rental Network Domain Security](https://apis.io/security/evolve-vacation-rental-network/evolve-vacation-rental-network-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Evolve Vacation Rental Network Scopes](https://apis.io/scopes/evolve-vacation-rental-network/evolve-vacation-rental-network-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Evolve Vacation Rental Network Plans Pricing](https://apis.io/plans/evolve-vacation-rental-network/evolve-vacation-rental-network-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Evolve Vacation Rental Network Rate Limits](https://apis.io/rate-limits/evolve-vacation-rental-network/evolve-vacation-rental-network-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://evolve.com)
+- [Pricing](https://evolve.com/owner/vacation-rental-management)
+- [Support](https://evolve.com/contact)
+- [Blog](https://evolve.com/blog)
+- [Terms of service](https://evolve.com/terms)
+- [Privacy policy](https://evolve.com/privacy)
+
+## API Evangelist rating
+
+**Kin Score 22.0** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 55.4 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 19.0 |
+| Access clarity | 38.2 |
+
+**Agent readiness 5.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 34.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/evolve-vacation-rental-network/](https://apis.io/providers/evolve-vacation-rental-network/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Evolve: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/evolve-vacation-rental-network/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
